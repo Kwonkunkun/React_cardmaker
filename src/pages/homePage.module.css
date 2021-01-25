@@ -1,0 +1,50 @@
+.container {
+    background-color: black;
+    width: 100vw;
+    height: 100vh;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+
+.logIn {
+    width: 200px;
+    height: 100px;
+
+    align-self: center;
+    border-radius: 10px;
+
+    animation: fadein 10s;
+    animation-fill-mode: forwards;
+    display: inline-block;
+
+    background: white;
+    border: 0.125em solid black;
+    font: 600 1.5rem/1.25 "Montserrat";
+    letter-spacing: 0.125em;
+    margin: 0.5rem;
+    padding: 0.5em 0.75em;
+    position: relative;
+    text-transform: uppercase;
+
+    transition: width 2s, height 2s, background-color 2s, transform 2s;
+}
+
+.logIn:hover {
+    background-color: rgb(255, 255, 255, 0.5);
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+        transform: scale(0);
+    }
+    to {
+        opacity: 1;
+    }
+}

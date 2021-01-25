@@ -1,0 +1,16 @@
+.container {
+    background-color: #5a999c;
+    width: 50%;
+    height: 70%;
+    overflow-y: scroll;
+    align-self: center;
+
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+}
+
+.container * {
+    margin-top: 10px;
+}

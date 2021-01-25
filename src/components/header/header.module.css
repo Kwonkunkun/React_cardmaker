@@ -1,0 +1,26 @@
+.container {
+    background-color: darkslategray;
+    width: 100vw;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title {
+    color: whitesmoke;
+}
+
+.logState {
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    font-size: 25px;
+    margin-right: 20px;
+    color: #799a9c;
+}
