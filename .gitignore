@@ -24,3 +24,5 @@ yarn-error.log*
 
 # firebase api key
 firebase.utils.js
+
+.env
