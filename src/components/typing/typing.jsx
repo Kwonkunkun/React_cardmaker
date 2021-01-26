@@ -11,12 +11,13 @@ class Typing extends PureComponent {
 
     cursorRef = createRef();
     timer = undefined;
-    typingDelay = 200;
-    erasingDelay = 100;
+    typingDelay = 100;
+    erasingDelay = 50;
     nextTypingDelay = 1000;
 
     //시작시에 타이머를 킨다.
     componentDidMount() {
+        console.log("typing componentDidMount");
         this.timer = setTimeout(this.type, this.nextTypingDelay);
     }
 
@@ -33,6 +34,7 @@ class Typing extends PureComponent {
     }
 
     componentWillUnmount() {
+        console.log("typing componentWillUnmount");
         clearTimeout(this.timer);
     }
 

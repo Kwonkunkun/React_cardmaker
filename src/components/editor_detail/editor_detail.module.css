@@ -1,6 +1,6 @@
 .container {
     width: 400px;
-    height: 200px;
+    height: 300px;
     background-color: #9c6a4b;
     display: grid;
     grid-template-columns: 1fr 2fr;
@@ -22,6 +22,7 @@
 
 .info > * {
     width: 80%;
+    text-overflow: ellipsis;
 }
 
 .colorPicker label {

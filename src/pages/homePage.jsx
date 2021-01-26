@@ -27,7 +27,7 @@ const HomePage = ({ user, signInGoogle, signInGithub }) => {
                 textArray={
                     user === null
                         ? ["Please log in."]
-                        : ["You already logged in!"]
+                        : ["You already logged in! Press the button again."]
                 }
             />
             <button

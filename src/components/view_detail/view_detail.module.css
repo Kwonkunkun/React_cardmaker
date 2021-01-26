@@ -1,14 +1,15 @@
 .container {
     width: 400px;
-    height: 200px;
+    height: 300px;
     background-color: #9c6a4b;
     display: grid;
     grid-template-columns: 1fr 2fr;
+    border-radius: 5px;
 }
 
 .img {
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
     margin: auto;
     border-radius: 50%;
 }
@@ -17,29 +18,28 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
 }
 
 .info > * {
     width: 80%;
 }
 
-.colorPicker {
-    margin: 0;
-    color: whitesmoke;
+.info {
+    font-size: 1em;
 }
 
-.btns {
-    grid-column-start: 1;
-    grid-column-end: 4;
-    display: flex;
-    justify-content: space-between;
+.info span {
+    letter-spacing: 2px;
+    word-spacing: 2px;
+    font-weight: normal;
+    text-decoration: underline;
+    font-style: normal;
+    font-variant: normal;
+    text-transform: none;
 }
 
-.btns button {
-    width: 100px;
-    border-radius: 10px;
-    background-color: #799a9c;
-    margin: 5px;
-    color: whitesmoke;
+.description {
+    flex: 1;
+    overflow-y: scroll;
 }
