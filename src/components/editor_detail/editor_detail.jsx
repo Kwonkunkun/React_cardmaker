@@ -130,7 +130,7 @@ const EditorDetail = memo(({ idx, data, edit, onDelete }) => {
                 />
                 <button className={styles.imgUploadBtn} onClick={uploadImg}>
                     {onSpinner === false ? (
-                        <i class="fas fa-upload">img</i>
+                        <i className="fas fa-upload">img</i>
                     ) : (
                         <Spinner />
                     )}
@@ -139,7 +139,7 @@ const EditorDetail = memo(({ idx, data, edit, onDelete }) => {
                     className={styles.deleteBtn || ""}
                     onClick={handleClickDelete}
                 >
-                    <i class="fas fa-trash-alt"></i>
+                    <i className="fas fa-trash-alt"></i>
                 </button>
             </section>
         </div>

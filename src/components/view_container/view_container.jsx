@@ -1,8 +1,8 @@
 import ViewDetail from "components/view_detail/view_detail";
-import React from "react";
+import React, { memo } from "react";
 import styles from "./view_container.module.css";
 
-const ViewContainer = ({ data }) => {
+const ViewContainer = memo(({ data }) => {
     return (
         <div className={styles.container}>
             {data.map((item) => (
@@ -13,6 +13,6 @@ const ViewContainer = ({ data }) => {
             ))}
         </div>
     );
-};
+});
 
 export default ViewContainer;

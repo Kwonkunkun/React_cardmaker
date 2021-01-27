@@ -9,4 +9,6 @@
     flex-direction: column;
     justify-items: center;
     align-items: center;
+
+    -webkit-overflow-scrolling: touch;
 }

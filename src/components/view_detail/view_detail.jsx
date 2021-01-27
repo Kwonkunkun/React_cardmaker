@@ -1,7 +1,7 @@
-import React from "react";
+import React, { memo } from "react";
 import styles from "./view_detail.module.css";
 
-const ViewDetail = ({ data }) => {
+const ViewDetail = memo(({ data }) => {
     return (
         <div
             className={styles.container}
@@ -18,6 +18,6 @@ const ViewDetail = ({ data }) => {
             </section>
         </div>
     );
-};
+});
 
 export default ViewDetail;

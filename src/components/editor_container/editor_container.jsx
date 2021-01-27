@@ -1,8 +1,8 @@
 import EditorDetail from "components/editor_detail/editor_detail";
-import React, { useEffect } from "react";
+import React, { memo } from "react";
 import styles from "./editor.container.module.css";
 
-const EditorContainer = ({ data, handleEdit }) => {
+const EditorContainer = memo(({ data, handleEdit }) => {
     const onEidt = (idx, changeData) => {
         //idx의 데이터값을 바꾼 data값을 return
         const newData = [...data];
@@ -35,5 +35,5 @@ const EditorContainer = ({ data, handleEdit }) => {
             ))}
         </div>
     );
-};
+});
 export default EditorContainer;
