@@ -11,8 +11,8 @@ class Typing extends PureComponent {
 
     cursorRef = createRef();
     timer = undefined;
-    typingDelay = 100;
-    erasingDelay = 50;
+    typingDelay = 200;
+    erasingDelay = 100;
     nextTypingDelay = 1000;
 
     //시작시에 타이머를 킨다.
@@ -22,12 +22,14 @@ class Typing extends PureComponent {
     }
 
     componentDidUpdate(prevProps) {
-        if (this.props.textArray !== prevProps.textArray) {
+        if (this.props.textArray[0] !== prevProps.textArray[0]) {
             this.setState({ isTyping: false });
         } else {
             if (this.state.isTyping) {
+                clearTimeout(this.timer);
                 this.timer = setTimeout(this.type, this.typingDelay);
             } else {
+                clearTimeout(this.timer);
                 this.tiemr = setTimeout(this.erase, this.erasingDelay);
             }
         }
@@ -36,9 +38,11 @@ class Typing extends PureComponent {
     componentWillUnmount() {
         console.log("typing componentWillUnmount");
         clearTimeout(this.timer);
+        this.timer = undefined;
     }
 
     type = () => {
+        if (this.timer === undefined) return;
         if (
             this.state.charIdx <
             this.props.textArray[this.state.textArrayIdx].length
@@ -71,6 +75,7 @@ class Typing extends PureComponent {
     };
 
     erase = () => {
+        if (this.timer === undefined) return;
         if (this.state.charIdx > 0) {
             if (!this.cursorRef.current.classList.contains(styles.typing)) {
                 this.cursorRef.current.classList.add(styles.typing);

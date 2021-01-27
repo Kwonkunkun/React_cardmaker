@@ -45,7 +45,16 @@ const Header = ({ user, signOut, signInGoogle, signInGithub, plusOne }) => {
         <div className={styles.container}>
             <h1 className={styles.title}>Card Maker</h1>
             <div>
-                <button className={styles.plus} onClick={plusOne}>
+                <button
+                    className={styles.plus}
+                    onClick={
+                        user !== null
+                            ? plusOne
+                            : () => {
+                                  console.log("login 해주셔");
+                              }
+                    }
+                >
                     <i className="fas fa-plus-square"></i>
                 </button>
                 <button

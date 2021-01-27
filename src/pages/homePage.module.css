@@ -19,7 +19,7 @@
     align-self: center;
     border-radius: 10px;
 
-    animation: fadein 3s;
+    animation: fadein 10s;
     animation-fill-mode: forwards;
     display: inline-block;
 
@@ -42,7 +42,7 @@
 @keyframes fadein {
     from {
         opacity: 0;
-        transform: scale(0);
+        /* transform: scale(0); */
     }
     to {
         opacity: 1;
