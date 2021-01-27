@@ -24,3 +24,6 @@ yarn-error.log*
 
 # firebase api key
 firebase.utils.js
+
+#cloudinary api key
+.env

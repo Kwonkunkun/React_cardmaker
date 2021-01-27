@@ -35,10 +35,13 @@ const EditorDetail = memo(({ idx, data, edit, onDelete }) => {
         }
         const formData = new FormData();
         formData.append("file", selectedFile);
-        formData.append("upload_preset", "r1gvkplt");
+        formData.append(
+            "upload_preset",
+            `${process.env.REACT_APP_UPLOAD_PRESET}`
+        );
 
         Axios.post(
-            "https://api.cloudinary.com/v1_1/drkeoyuzw/upload",
+            `https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUD_NAME}/upload`,
             formData
         ).then((response) => {
             console.log(response.data.secure_url);
