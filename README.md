@@ -45,6 +45,7 @@
 
 -   React hook의 숙련도를 늘리기 위한 프로젝트
 -   firebase api, cloudinary api 학습
+-   React router 학습
 
 <!--USE TECH-->
 
