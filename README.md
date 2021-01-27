@@ -100,43 +100,24 @@
 -   edit (왼쪽 컨테이너): 변경되는 사항이 있을때마다 firebase에 데이터를 씀
 -   view (오른쪽 컨테이너): firebase.read.on을 이용해서 firebase에서 변경되는 사항이 있을때마다 업데이트
 
-### Play Page (view video clicked)
-
 ---
-
-### Mobile!!
-
--   아직 구현 사항 없음.
 
 ## Structure
 
-<!--
+
 ### 전체 구조
 
-<img width="1680" alt="스크린샷 2021-01-16 오후 4 10 08" src="https://user-images.githubusercontent.com/59603575/104806018-b8a14180-5817-11eb-87f3-ebcf11d7e917.png">
+<img width="1680" alt="스크린샷 2021-01-16 오후 4 10 08" src="https://user-images.githubusercontent.com/59603575/105948977-49e1a500-60af-11eb-8249-133fc1b50e0e.png">
 
 ---
 
-### Search 기능
+### 기능
 
-<img width="60%" style="margin:0; padding:0;" alt="스크린샷 2021-01-16 오후 4 10 08" src="https://user-images.githubusercontent.com/59603575/104806022-bc34c880-5817-11eb-8ce1-bc1dbb7dfd07.png">
+<img width="1680" style="margin:0; padding:0;" alt="스크린샷 2021-01-16 오후 4 10 08" src="https://user-images.githubusercontent.com/59603575/105949828-b4dfab80-60b0-11eb-971d-d4644c5701db.png">
 
-1. Search form (검색창) 입력</br>
-2. App에서 PAGE state 변경 </br>
-3. Search video list에서 config에 getApiData요청 </br>
-4. 그 데이터를 이용해서 thumnail render
-
----
-
-### Thumbnail click시 video page로 가는 기능
-
-<img width="60%" style="margin:0; padding:0;" alt="스크린샷 2021-01-16 오후 4 10 08" src="https://user-images.githubusercontent.com/59603575/104806020-ba6b0500-5817-11eb-910c-28f2f785ac98.png">
-<span style="font-size: 1.1em; margin-left:1em;">
-
-1. Thumbnail img or container click</br>
-2. App에서 PAGE state 변경 </br>
-3. config에 받은 video id를 이용해서 getApiData요청 </br>
-4. 그 데이터를 이용해서 video title, like 등의 데이터들을 받아와서 video contanier에서 render -->
+1. fire base auth
+2. auth 되었을때만 eidt 가능
+3. firebase.read.on을 이용해서 firebase데이터가 변경될때마다 app의 state.data 업데이트
 
 ---
 
