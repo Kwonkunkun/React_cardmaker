@@ -27,3 +27,5 @@ firebase.utils.js
 
 #cloudinary api key
 .env
+# Local Netlify folder
+.netlify
