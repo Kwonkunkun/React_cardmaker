@@ -1,8 +1,10 @@
-import React, { memo } from "react";
+import React, { memo, useState } from "react";
 import styles from "./editor_detail.module.css";
-import tempImg from "img/temp.png";
+import Axios from "axios";
 
 const EditorDetail = memo(({ idx, data, edit, onDelete }) => {
+    const [selectedFile, setSelectedFile] = useState(null);
+
     const onChangeBgColor = (event) => {
         edit(idx, { ...data, bgColor: event.target.value });
     };
@@ -26,9 +28,27 @@ const EditorDetail = memo(({ idx, data, edit, onDelete }) => {
         onDelete(idx);
     };
 
+    const uploadImg = () => {
+        if (selectedFile === null) {
+            window.alert("이미지를 추가해주세요!");
+            return;
+        }
+        const formData = new FormData();
+        formData.append("file", selectedFile);
+        formData.append("upload_preset", "r1gvkplt");
+
+        Axios.post(
+            "https://api.cloudinary.com/v1_1/drkeoyuzw/upload",
+            formData
+        ).then((response) => {
+            console.log(response.data.secure_url);
+            edit(idx, { ...data, imgUrl: response.data.secure_url });
+        });
+    };
+
     return (
         <div className={styles.container}>
-            <img className={styles.img} src={tempImg} alt="img" />
+            <img className={styles.img} src={data.imgUrl} alt="img" />
             <section className={styles.info}>
                 <div className={styles.colorPicker}>
                     <label>bg color : </label>
@@ -81,7 +101,15 @@ const EditorDetail = memo(({ idx, data, edit, onDelete }) => {
                 />
             </section>
             <section className={styles.btns}>
-                <button className={styles.imgUploadBtn}>upload img</button>
+                <input
+                    className={styles.fileUploader}
+                    type="file"
+                    name="file"
+                    onChange={(event) => setSelectedFile(event.target.files[0])}
+                />
+                <button className={styles.imgUploadBtn} onClick={uploadImg}>
+                    upload img
+                </button>
                 <button
                     className={styles.deleteBtn || ""}
                     onClick={handleClickDelete}
