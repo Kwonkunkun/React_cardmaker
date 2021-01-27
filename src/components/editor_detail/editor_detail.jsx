@@ -1,9 +1,11 @@
 import React, { memo, useState } from "react";
 import styles from "./editor_detail.module.css";
 import Axios from "axios";
+import Spinner from "components/spinner/spinner";
 
 const EditorDetail = memo(({ idx, data, edit, onDelete }) => {
     const [selectedFile, setSelectedFile] = useState(null);
+    const [onSpinner, setOnSpinner] = useState(false);
 
     const onChangeBgColor = (event) => {
         edit(idx, { ...data, bgColor: event.target.value });
@@ -40,13 +42,21 @@ const EditorDetail = memo(({ idx, data, edit, onDelete }) => {
             `${process.env.REACT_APP_UPLOAD_PRESET}`
         );
 
+        //여기서 로딩스피너 키고
+        setOnSpinner(true);
         Axios.post(
             `https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUD_NAME}/upload`,
             formData
-        ).then((response) => {
-            console.log(response.data.secure_url);
-            edit(idx, { ...data, imgUrl: response.data.secure_url });
-        });
+        )
+            .then((response) => {
+                console.log(response);
+                edit(idx, { ...data, imgUrl: response.data.secure_url });
+                //여기서 끄면 되네
+                setOnSpinner(false);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
     };
 
     return (
@@ -119,13 +129,17 @@ const EditorDetail = memo(({ idx, data, edit, onDelete }) => {
                     onChange={(event) => setSelectedFile(event.target.files[0])}
                 />
                 <button className={styles.imgUploadBtn} onClick={uploadImg}>
-                    upload img
+                    {onSpinner === false ? (
+                        <i class="fas fa-upload">img</i>
+                    ) : (
+                        <Spinner />
+                    )}
                 </button>
                 <button
                     className={styles.deleteBtn || ""}
                     onClick={handleClickDelete}
                 >
-                    delete
+                    <i class="fas fa-trash-alt"></i>
                 </button>
             </section>
         </div>
