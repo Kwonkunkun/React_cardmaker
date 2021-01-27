@@ -11,7 +11,7 @@ class Typing extends PureComponent {
 
     cursorRef = createRef();
     timer = undefined;
-    typingDelay = 200;
+    typingDelay = 150;
     erasingDelay = 100;
     nextTypingDelay = 1000;
 
