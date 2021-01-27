@@ -7,6 +7,7 @@ import Header from "components/header/header";
 import {
     auth,
     signInWithGoogle,
+    signInWithGit,
     writeData,
     readData,
     readOff,
@@ -55,6 +56,18 @@ function App() {
     };
 
     const signInGithub = () => {
+        signInWithGit()
+            .then((result) => {
+                /** @type {firebase.auth.OAuthCredential} */
+                console.log(result);
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                console.log(
+                    `errorCode : ${errorCode}, errorMessage : ${errorMessage}`
+                );
+            });
         console.log("signInGithub");
     };
 
