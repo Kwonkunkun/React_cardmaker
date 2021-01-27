@@ -59,7 +59,11 @@ const EditorDetail = memo(({ idx, data, edit, onDelete }) => {
                         type="color"
                         id="colorpicker"
                         onChange={onChangeBgColor}
-                        value={data.bgColor || ""}
+                        value={
+                            data.bgColor !== undefined
+                                ? data.bgColor
+                                : "#ffffff"
+                        }
                     />
                     <br />
                     <label>font color : </label>
@@ -67,7 +71,11 @@ const EditorDetail = memo(({ idx, data, edit, onDelete }) => {
                         type="color"
                         id="colorpicker"
                         onChange={onChangeFontColor}
-                        value={data.fontColor || ""}
+                        value={
+                            data.fontColor !== undefined
+                                ? data.fontColor
+                                : "#ffffff"
+                        }
                     />
                 </div>
                 <input
