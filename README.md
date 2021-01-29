@@ -129,6 +129,7 @@
 -   useEffect 학습
 -   React router 학습
 -   firebase auth, realtimeDataBase 사용법 학습
+-   cloudinary 
 
 ---
 
